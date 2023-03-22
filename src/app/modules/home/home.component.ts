@@ -1,7 +1,7 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Character, CharacterApiResponse } from './models/character.model';
+import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { Character } from './models/character.model';
+import { RickAndMortyService } from './services/rick-and-morty/rick-and-morty.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,8 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class HomeComponent implements OnInit {
   characters: Character[] = []
-  http = inject(HttpClient)
+
+  constructor(private rickAndMortyService: RickAndMortyService) { }
 
   length = 50;
   pageSize = 20;
@@ -23,7 +24,7 @@ export class HomeComponent implements OnInit {
   disabled = false;
 
   getCharacterList(page: number) {
-    this.http.get<CharacterApiResponse>(`https://rickandmortyapi.com/api/character?page=${page}`).subscribe((data) => {
+    this.rickAndMortyService.getData(page).subscribe((data) => {
       this.characters = data.results
       this.length = data.info.count
     })

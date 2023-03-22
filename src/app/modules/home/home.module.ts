@@ -1,5 +1,4 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { RickMortyCardComponent } from './components/rick-morty-card/rick-morty-card.component';
@@ -16,7 +15,6 @@ import { HomeComponent } from './home.component';
     CommonModule,
     HomeRoutingModule,
     RickMortyCardComponent,
-    HttpClientModule,
     MatPaginatorModule
   ]
 })
