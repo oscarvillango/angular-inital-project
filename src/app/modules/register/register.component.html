@@ -1,0 +1,29 @@
+<mat-card>
+    <form [formGroup]="form" novalidate (ngSubmit)="register()">
+        <mat-card-title>Register</mat-card-title>
+        <mat-card-content>
+            <p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="pat@example.com" formControlName="email" required>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="password" required>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput type="password" formControlName="confirmPassword" required>
+                </mat-form-field>
+            </p>
+            <div class="buttons">
+                <button type="submit" color="primary" mat-button>Register</button>
+                <a mat-button href="/login" target="_self">Login</a>
+            </div>
+        </mat-card-content>
+    </form>
+</mat-card>

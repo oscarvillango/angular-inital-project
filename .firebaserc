@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-villango-api": {
+      "hosting": {
+        "angular-project": [
+          "angular-villango-api"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-villango-api"
+  }
+}
