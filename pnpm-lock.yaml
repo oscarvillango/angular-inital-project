@@ -15,6 +15,9 @@ specifiers:
   '@angular/platform-browser': ^15.2.0
   '@angular/platform-browser-dynamic': ^15.2.0
   '@angular/router': ^15.2.0
+  '@ngrx/component-store': ^15.4.0
+  '@ngrx/store': ^15.4.0
+  '@ngrx/store-devtools': ^15.4.0
   '@types/jasmine': ~4.3.0
   jasmine-core: ~4.5.0
   karma: ~6.4.0
@@ -39,6 +42,9 @@ dependencies:
   '@angular/platform-browser': 15.2.2_67tth7lseo52y77w7j2bbt7gai
   '@angular/platform-browser-dynamic': 15.2.2_pbblcghlnqr2rvkrg2skpac4ri
   '@angular/router': 15.2.2_l5mfipeoizzgchs5c5d4qx66yu
+  '@ngrx/component-store': 15.4.0_w2xujjrbhynr6cc5m4376evic4
+  '@ngrx/store': 15.4.0_w2xujjrbhynr6cc5m4376evic4
+  '@ngrx/store-devtools': 15.4.0_qr5faydpnnvwvfhftqzuaacyai
   rxjs: 7.8.0
   tslib: 2.5.0
   zone.js: 0.12.0
@@ -3206,6 +3212,39 @@ packages:
       tslib: 2.5.0
     dev: false
 
+  /@ngrx/component-store/15.4.0_w2xujjrbhynr6cc5m4376evic4:
+    resolution: {integrity: sha512-lkpBAg2ccehNazkXVt43veuHXJcIHdKin1/eCGxKePDt+zZ02WgDHfwSmS9Wa0AODo/N+uUUJZpXTb5mD7liAA==}
+    peerDependencies:
+      '@angular/core': ^15.0.0
+      rxjs: ^6.5.3 || ^7.5.0
+    dependencies:
+      '@angular/core': 15.2.2_rxjs@7.8.0+zone.js@0.12.0
+      rxjs: 7.8.0
+      tslib: 2.5.0
+    dev: false
+
+  /@ngrx/store-devtools/15.4.0_qr5faydpnnvwvfhftqzuaacyai:
+    resolution: {integrity: sha512-AqWRprSyS3u/vZlpsBOPMW1/0TZS2LE13/KpZedEY+RMCW+mi53esqgrdNGOB3Wr4vrI82Ar9fgaIm4TQO6LPg==}
+    peerDependencies:
+      '@ngrx/store': 15.4.0
+      rxjs: ^6.5.3 || ^7.5.0
+    dependencies:
+      '@ngrx/store': 15.4.0_w2xujjrbhynr6cc5m4376evic4
+      rxjs: 7.8.0
+      tslib: 2.5.0
+    dev: false
+
+  /@ngrx/store/15.4.0_w2xujjrbhynr6cc5m4376evic4:
+    resolution: {integrity: sha512-OvCuNBHL8mAUnRTS6QSFm+IunspsYNu2cCwDovBNn7EGhxRuGihBeNoX47jCqWPHBFtokj4BlatDfpJ/yCh4xQ==}
+    peerDependencies:
+      '@angular/core': ^15.0.0
+      rxjs: ^6.5.3 || ^7.5.0
+    dependencies:
+      '@angular/core': 15.2.2_rxjs@7.8.0+zone.js@0.12.0
+      rxjs: 7.8.0
+      tslib: 2.5.0
+    dev: false
+
   /@ngtools/webpack/15.2.2_vagfimxp53s743fzfm4jsj425e:
     resolution: {integrity: sha512-xHd5CC0Wi0a/CKfKoOC4Bwb1FVjy0esj22eQAkVh0iDKeiAQH4UG/VRmsdSHvto1z0IzGbMSt4hRbv4h2aYIdw==}
     engines: {node: ^14.20.0 || ^16.13.0 || >=18.10.0, npm: ^6.11.0 || ^7.5.6 || >=8.0.0, yarn: '>= 1.13.0'}
@@ -4647,7 +4686,7 @@ packages:
     resolution: {integrity: sha512-QHTXI/sZQmko1cbDoNAa3mJ5qhWUUNAq3vR0/YiD379fWQrcfuoX1+HW2S0MTt7XmoPLapdaDKUtelUSPic7hQ==}
     engines: {node: '>=10.13.0'}
     dependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
       tapable: 2.2.1
     dev: true
 
@@ -5176,8 +5215,6 @@ packages:
 
   /graceful-fs/4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
-    dev: true
-    optional: true
 
   /handle-thing/2.0.1:
     resolution: {integrity: sha512-9Qn4yBxelxoh2Ow62nP+Ka/kMnOXRi8BXnRaUwezLNhqelnN49xKz4F/dPP8OYLxLxq6JDtZb2i9XznUQbNPTg==}
@@ -5691,7 +5728,7 @@ packages:
   /jsonfile/4.0.0:
     resolution: {integrity: sha512-m6F1R3z8jjlf2imQHS2Qez5sjKWQzbuuhuJ/FKYFRZvPE3PuHcSMVZzfsLhGVOkfd20obL5SWEBew5ShlquNxg==}
     optionalDependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
 
   /jsonparse/1.3.1:
     resolution: {integrity: sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg==}
@@ -6319,7 +6356,7 @@ packages:
     dependencies:
       env-paths: 2.2.1
       glob: 7.2.3
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
       make-fetch-happen: 10.2.1
       nopt: 6.0.0
       npmlog: 6.0.2
@@ -7889,7 +7926,7 @@ packages:
     engines: {node: '>=10.13.0'}
     dependencies:
       glob-to-regexp: 0.4.1
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
     dev: true
 
   /wbuf/1.7.3:
