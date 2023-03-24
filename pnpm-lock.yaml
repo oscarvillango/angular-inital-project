@@ -16,6 +16,7 @@ specifiers:
   '@angular/platform-browser-dynamic': ^15.2.0
   '@angular/router': ^15.2.0
   '@ngrx/component-store': ^15.4.0
+  '@ngrx/effects': ^15.4.0
   '@ngrx/store': ^15.4.0
   '@ngrx/store-devtools': ^15.4.0
   '@types/jasmine': ~4.3.0
@@ -43,6 +44,7 @@ dependencies:
   '@angular/platform-browser-dynamic': 15.2.2_pbblcghlnqr2rvkrg2skpac4ri
   '@angular/router': 15.2.2_l5mfipeoizzgchs5c5d4qx66yu
   '@ngrx/component-store': 15.4.0_w2xujjrbhynr6cc5m4376evic4
+  '@ngrx/effects': 15.4.0_ck4d7sjyojsfrhulb2lya6ti4u
   '@ngrx/store': 15.4.0_w2xujjrbhynr6cc5m4376evic4
   '@ngrx/store-devtools': 15.4.0_qr5faydpnnvwvfhftqzuaacyai
   rxjs: 7.8.0
@@ -3219,6 +3221,19 @@ packages:
       rxjs: ^6.5.3 || ^7.5.0
     dependencies:
       '@angular/core': 15.2.2_rxjs@7.8.0+zone.js@0.12.0
+      rxjs: 7.8.0
+      tslib: 2.5.0
+    dev: false
+
+  /@ngrx/effects/15.4.0_ck4d7sjyojsfrhulb2lya6ti4u:
+    resolution: {integrity: sha512-/8gHhOM9aeGaw8OG2LLwi4I4p84xzG0EU9TqWrvQcW74wn8sFZONjLvUte5YOzJ5502PPFFrfXSOc+lHnVAJUA==}
+    peerDependencies:
+      '@angular/core': ^15.0.0
+      '@ngrx/store': 15.4.0
+      rxjs: ^6.5.3 || ^7.5.0
+    dependencies:
+      '@angular/core': 15.2.2_rxjs@7.8.0+zone.js@0.12.0
+      '@ngrx/store': 15.4.0_w2xujjrbhynr6cc5m4376evic4
       rxjs: 7.8.0
       tslib: 2.5.0
     dev: false

@@ -1,4 +1,4 @@
-import { CharacterApiResponse } from './../../models/character.model';
+import { CharacterApiResponse } from '../../../../models/character.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 

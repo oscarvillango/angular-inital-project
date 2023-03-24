@@ -1,6 +1,11 @@
+import { CharacterApiResponse } from './../../models/character.model';
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { Character } from './models/character.model';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Character } from '../../models/character.model';
+import { getCharactersAction, successCharactersAction } from './../../store/actions/home.actions';
+import { selectCharacterListingLoadingState, selectCharacterListingState, selectCharacterListingLengthState } from './../../store/selectors/home.selector';
 import { RickAndMortyService } from './services/rick-and-morty/rick-and-morty.service';
 
 @Component({
@@ -9,13 +14,19 @@ import { RickAndMortyService } from './services/rick-and-morty/rick-and-morty.se
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  characters: Character[] = []
 
-  constructor(private rickAndMortyService: RickAndMortyService) { }
 
-  length = 50;
+  constructor(
+    private store: Store<any>
+  ) { }
+
+  loading$: Observable<boolean> = new Observable()
+  characters$: Observable<Character[] | undefined> = new Observable()
+  length$: Observable<number | undefined> = new Observable()
+
+
   pageSize = 20;
-  pageIndex = 1;
+  pageIndex = 0;
   pageSizeOptions = [20];
 
   hidePageSize = false;
@@ -24,18 +35,20 @@ export class HomeComponent implements OnInit {
   disabled = false;
 
   getCharacterList(page: number) {
-    this.rickAndMortyService.getData(page).subscribe((data) => {
-      this.characters = data.results
-      this.length = data.info.count
-    })
+    this.store.dispatch(getCharactersAction({ page }))
   }
 
   handlePageEvent(e: PageEvent) {
     this.getCharacterList(e.pageIndex)
+    this.pageIndex = e.pageIndex
   }
 
   ngOnInit(): void {
-    this.getCharacterList(this.pageIndex)
+    this.loading$ = this.store.select(selectCharacterListingLoadingState)
+    this.characters$ = this.store.select(selectCharacterListingState)
+    this.length$ = this.store.select(selectCharacterListingLengthState)
+
+    this.getCharacterList(this.pageIndex + 1)
   }
 
 }
